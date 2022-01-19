@@ -1,26 +1,7 @@
-podTemplate(yaml: '''
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      labels: 
-        some-label: some-label-value
-    spec:
-      containers:
-      - name: busybox
-        image: busybox
-        command:
-        - sleep
-        args:
-        - 99d
-      hostAliases:
-      - ip: 172.67.135.12
-        hostnames:
-        - jenkins.pointit.co.th
-    ''') {
-    node(POD_LABEL) {
-      container('busybox') {
-        echo POD_CONTAINER // displays 'busybox'
-        sh 'hostname'
-      }
-    }
-}
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: jnlp
+    image: 'jenkins/inbound-agent:4.7-1'
+    args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
