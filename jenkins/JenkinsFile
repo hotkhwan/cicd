@@ -1,0 +1,12 @@
+node('jenkins-slave') {
+    
+     stage('test pipeline') {
+        sh(script: """
+            echo "hello CICD"
+           git clone https://github.com/hotkhwan/cicd.git
+           cd ./cicd/nuxtjs
+           
+           docker build . -t test
+        """)
+    }
+}
