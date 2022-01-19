@@ -23,7 +23,7 @@ podTemplate(yaml: '''
   node(POD_LABEL) {
     
     stage('Get a Golang project') {
-      git url: 'https://github.com/hashicorp/terraform-provider-google.git' // , branch: 'main'
+      git url: 'https://github.com/hashicorp/terraform-provider-google.git', branch: 'main'
       container('golang') {
         stage('Build a Go project') {
           sh '''
