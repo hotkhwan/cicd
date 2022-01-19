@@ -15,6 +15,10 @@ podTemplate(yaml: '''
         - sleep
         args:
         - 99d
+      hostAliases:
+      - ip: 172.67.135.12
+        hostnames:
+        - jenkins.pointit.co.th
 ''') {
   node(POD_LABEL) {
     stage('Get a Maven project') {
