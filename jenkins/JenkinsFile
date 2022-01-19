@@ -12,6 +12,10 @@ podTemplate(yaml: '''
         - sleep
         args:
         - 99d
+      hostAliases:
+      - ip: 58.137.58.173
+        hostnames:
+        - jenkins.pointit.co.th
     ''') {
     node(POD_LABEL) {
       container('busybox') {
