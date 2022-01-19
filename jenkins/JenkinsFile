@@ -1,8 +1,10 @@
-node('jenkins-slave') {
-            stage('Run shell') {
+podTemplate {
+    node('jenkins-slave') {
+        stage('Run shell') {
             sh 'echo hello world'
         }
     }
+}
     //  stage('test pipeline') {
     //     sh(script: """
     //         echo "hello CICD"
@@ -12,4 +14,3 @@ node('jenkins-slave') {
     //        docker build . -t test
     //     """)
     // }
-}
